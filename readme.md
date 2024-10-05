@@ -2,8 +2,9 @@
 ! Git is a distributed version control system that allows developers to track project changes and collaborate efficiently.
 * ***Track history:*** Every change is saved, can review or revert to any point.
 * ***Collaboration:*** Multiple people can work on the same project, each contributing their changes.<br><br> 
->[!NOTE] Git is known for being fast, open-source, stable, and widely popular among developers.* <br><br> 
+>[!NOTE] Git is known for being fast, open-source, stable, and widely popular among developers.* <br><br> <br> 
 
+<br><br><br>
 
 # GitHub
 >[!NOTE]
@@ -11,6 +12,7 @@
    ***Store and manage code:*** GitHub provides a remote repository where code is securely stored.<br> 
    ***Collaborate:*** Invite others to contribute, review, or comment on the code.   <br>
 
+<br><br><br>
 
 # Install, Config, and Account:
 ## Install Git:
@@ -31,13 +33,13 @@ Verify the installation:<br>
   </pre>
 </div>
 
+<br><br><br>
 
 
 ## Create a GitHub (or GitLab) Account:
 >[!NOTE]
   - Go to GitHub or GitLab and create an account.
   - After creating the account, need to link local Git repository to a remote repository on these platforms.
-<br><br>
 
 # Clone a Repository
 >[!TIP]
@@ -74,7 +76,7 @@ Verify the installation:<br>
 </details>
 
 
-<br><br>
+<br><br><br> 
 
 # Git init:
 > [!IMPORTANT]
