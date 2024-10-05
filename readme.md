@@ -332,7 +332,7 @@ To see the full commit history of the repository, use:<br>
 # Fork (GitHub)
 >[!NOTE]
  A fork is a copy of a repository that lives under GitHub account. Forking allows to make changes to a project to contribute without affecting the original repository.
-
+ Forking is commonly used in open-source collaboration.
 
 ## Steps to fork a repository:
 *Fork the repository:* <br>
@@ -354,10 +354,8 @@ To see the full commit history of the repository, use:<br>
 </details>
 
 <br>
-
-***Submit a Pull Request:***<br>
-
-* To contribute changes back to the original repository, create a Pull Request (PR) from fork to the original repository. 
-* This allows the project maintainers to review  changes and merge them if appropriate.
-
-*Forking is commonly used in open-source collaboration, allowing developers to freely experiment without affecting the original codebase.*
+<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
+    <summary style="font-weight: bold; font-size: 1.1em;">🔄Submit a Pull Request:</summary>
+      To contribute changes back to the original repository, create a Pull Request (PR) from fork to the original repository. <br>
+      This allows the project maintainers to review  changes and merge them if appropriate. </br>
+</details>
