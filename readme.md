@@ -33,13 +33,12 @@ Verify the installation:<br>
   </pre>
 </div>
 
-<br><br><br>
-
-
 ## Create a GitHub (or GitLab) Account:
 >[!NOTE]
   - Go to GitHub or GitLab and create an account.
   - After creating the account, need to link local Git repository to a remote repository on these platforms.
+
+<br><br><br>
 
 # Clone a Repository
 >[!TIP]
