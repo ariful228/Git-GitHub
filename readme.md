@@ -71,10 +71,7 @@ Verify the installation:<br>
 
     Set upstream for future pushes (only needed once):
     git push -u origin main
-
-   
 </details>
-
 
 <br><br>
 
@@ -108,6 +105,7 @@ Verify the installation:<br>
     git branch -M main
     git push -u origin main
 </details>
+
 <br><br>
 
 # Branching
@@ -119,7 +117,6 @@ Branches in Git allow to work on different features, bug fixes, or experimental 
 > - **Parallel development:** Allows multiple developers to work on different features or fixes simultaneously.  
 > - **Isolated testing:** Each branch can be tested independently without affecting the main project.  
 > - **Version control:** Different versions of the codebase can be maintained and merged back into the main branch when ready.   
-
 
 <details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
     <summary>Branching command: </summary>
@@ -153,10 +150,12 @@ Branches in Git allow to work on different features, bug fixes, or experimental 
 <br><br>
 
 # Merging
-Merging is the process of integrating changes from one branch into another.
+>[!IMPORTANT]
+    Merging is the process of integrating changes from one branch into another.
 
 ## How Merging Works:
-Git looks at the changes made in both branches and combines them. If there are conflicting changes (e.g., modifications to the same lines in the same file), Git will pause and ask  to resolve the conflict manually.
+>[!TIP]
+    Git looks at the changes made in both branches and combines them. If there are conflicting changes (e.g., modifications to the same lines in the same file), Git will pause and ask  to resolve the conflict manually.
 
 <details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
     <summary> Steps to Merge a Branch: </summary>
@@ -173,11 +172,11 @@ Git looks at the changes made in both branches and combines them. If there are c
     Resolve merge conflicts (if any): 
     git add <file_with_conflicts>
     git commit -m "Resolved merge conflicts"
-
 </details>
 
-### Using Pull Requests (PRs) for Merging (GitHub)
-For teams or collaborative projects, it's common to use Pull Requests (PRs) on platforms like GitHub to review code before merging.
+## Using Pull Requests (PRs) for Merging (GitHub)- Remote
+>[!TIP]
+    For teams or collaborative projects, it's common to use Pull Requests (PRs) on platforms like GitHub to review code before merging.
 <details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
     <summary>Pull Request Workflow: </summary>
     Create a branch for  changes locally (e.g., feature1):
@@ -197,8 +196,61 @@ For teams or collaborative projects, it's common to use Pull Requests (PRs) on p
 
 <br><br>
 
+# Git Pull in local
+>[!NOTE]
+    To sync local Git repository with the remote repository after changes have been made directly on GitHub, typically want to pull the changes from the remote repository. Here's the process:
+
+<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
+   <summary>Steps to Sync Local Git with Remote:</summary>
+
+   - Fetch the latest changes from the remote.
+   - Merge those changes into local branch.
+  
+    Run the following command in  terminal:
+      `git pull origin <branch-name>`
+
+    Resolve Conflicts (if necessary): If there are conflicts between your local changes and the remote, Git will ask to resolve those conflicts manually.
+
+- Alternatives: <br>
+  
+*Clone*: Don’t need to clone unless want to create a new local copy of the repository. This would overwrite any local changes, so it's not ideal.<br>
+*Merge*: The pull command automatically fetches and merges, so using a separate merge command is only needed for manually fetch changes first using git fetch.
+</details>
+
+<br><br>
+
+# Git Fatch & Merge Separately in local
+>[!NOTE]
+    The git fetch command will retrieve the changes from the remote branch without modifying local working directory or merging those changes automatically. It simply updates local copy of the remote branch.
+
+<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">   
+
+***<summary>Fatch into local branch:</summary>***
+   - Download the latest commits from the remote branch to your local repository.
+   - Update the remote-tracking branch (origin/<branch-name>), but not merge these changes into your local branch.<br>
+    - Command:<br>
+      `git fetch origin <branch-name>`
+
+- Why Fetch Separately?: <br>
+    *Fatch*: Fetching separately allows to review the changes before merging.<br>
+    *diff*: Inspect the changes fetched with commands like `git log origin/<branch-name>` or `git diff`.
+
+***<summary>Merge into local branch:</summary>***
+   - After fetching the changes, manually merge the updates into local branch by using:<br>
+    - Command:<br>
+      `git merge origin/<branch-name>`
+
+- Why Merge Separately?: <br>
+    *Merge*: Merge the changes from the remote-tracking branch (origin/<branch-name>) into your current local branch.<br>
+    *Conflicts*: If there are no conflicts, it will merge cleanly. If conflicts exist, Git will prompt.
+</details>
+
+<br><br>
+
 # Resolve Merge Conflicts
-Conflicts occur when changes in two branches overlap and Git cannot decide how to combine them.
+>[!NOTE]
+    Conflicts occur when changes in two branches overlap and Git cannot decide how to combine them.
+
 example:
 ```
 Scenario:
@@ -225,8 +277,8 @@ The goal is to keep both changes in one branch.
     =======
     <p> down </p>
     >>>>>>> branch02(Incoming change)
-
 </details>
+
 <br>
 <details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
     <summary>Manually resolve the conflict by editing the file</summary> 
@@ -249,7 +301,8 @@ The goal is to keep both changes in one branch.
 <br><br>
 
 # Undo Changes
-Git allows undoing changes at different stages:
+>[!NOTE]
+    Git allows undoing changes at different stages. IF want to reset the contents of a file to the state it was in a specific commit.
 
 <details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
     <summary>Unstage changes</summary> 
@@ -273,22 +326,20 @@ Git allows undoing changes at different stages:
   - Commit 1 > Commit 2 > Commit 3 > Commit 4
 
   - **Undo the last commit** (move from 4 to 3):
-    ```bash
+    ```
     git reset HEAD~1
     ```
 
   - **Reset to a specific commit** (move from 4 to 2, remove changes):
-    ```bash
+    ```
     git reset --hard <commit_hash_of_commit_2>
     ```
 
   - **Reset to a specific commit** (move from 4 to 2, keep changes):
-    ```bash
+    ```
     git reset <commit_hash_of_commit_2>
     ```
-  
 </details>
-
 
 <br><br>
 
@@ -325,7 +376,6 @@ To see the full commit history of the repository, use:<br>
     View changes in each commit:<br>
     git log -p
 </details>
-
 
 <br><br>
 
