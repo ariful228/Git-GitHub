@@ -75,6 +75,56 @@ Verify the installation:<br>
 
 <br><br>
 
+# Git Pull in local
+>[!NOTE]
+    To sync local Git repository with the remote repository after changes have been made directly on GitHub, typically want to pull the changes from the remote repository. Here's the process:
+
+<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
+   <summary>Steps to Sync Local Git with Remote:</summary>
+
+   - Fetch the latest changes from the remote.
+   - Merge those changes into local branch.
+  
+    Run the following command in  terminal:
+      `git pull origin <branch-name>`
+
+    Resolve Conflicts (if necessary): If there are conflicts between your local changes and the remote, Git will ask to resolve those conflicts manually.
+
+- Alternatives: <br>
+  
+*Clone*: Don’t need to clone unless want to create a new local copy of the repository. This would overwrite any local changes, so it's not ideal.<br>
+*Merge*: The pull command automatically fetches and merges, so using a separate merge command is only needed for manually fetch changes first using git fetch.
+</details>
+
+<br><br>
+
+# Git Fatch & Merge Separately in local
+>[!NOTE]
+    The git fetch command will retrieve the changes from the remote branch without modifying local working directory or merging those changes automatically. It simply updates local copy of the remote branch.
+
+<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">   
+
+***<summary>Fatch into local branch:</summary>***
+   - Download the latest commits from the remote branch to your local repository.
+   - Update the remote-tracking branch (origin/<branch-name>), but not merge these changes into your local branch.<br>
+    - Command:<br>
+      `git fetch origin <branch-name>`
+
+- Why Fetch Separately?: <br>
+    *Fatch*: Fetching separately allows to review the changes before merging.<br>
+    *diff*: Inspect the changes fetched with commands like `git log origin/<branch-name>` or `git diff`.
+
+***<summary>Merge into local branch:</summary>***
+   - After fetching the changes, manually merge the updates into local branch by using:<br>
+    - Command:<br>
+      `git merge origin/<branch-name>`
+
+- Why Merge Separately?: <br>
+    *Merge*: Merge the changes from the remote-tracking branch (origin/<branch-name>) into your current local branch.<br>
+    *Conflicts*: If there are no conflicts, it will merge cleanly. If conflicts exist, Git will prompt.
+</details>
+<br><br>
+
 # Git init:
 > [!IMPORTANT]
 > ***Start Version Control for a New Project:***  
@@ -192,57 +242,6 @@ Branches in Git allow to work on different features, bug fixes, or experimental 
 
     Merge the PR once approved: 
     After the code is reviewed and approved, merge the PR through the GitHub interface. This integrates  changes into the target branch (typically main).
-</details>
-
-<br><br>
-
-# Git Pull in local
->[!NOTE]
-    To sync local Git repository with the remote repository after changes have been made directly on GitHub, typically want to pull the changes from the remote repository. Here's the process:
-
-<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">
-   <summary>Steps to Sync Local Git with Remote:</summary>
-
-   - Fetch the latest changes from the remote.
-   - Merge those changes into local branch.
-  
-    Run the following command in  terminal:
-      `git pull origin <branch-name>`
-
-    Resolve Conflicts (if necessary): If there are conflicts between your local changes and the remote, Git will ask to resolve those conflicts manually.
-
-- Alternatives: <br>
-  
-*Clone*: Don’t need to clone unless want to create a new local copy of the repository. This would overwrite any local changes, so it's not ideal.<br>
-*Merge*: The pull command automatically fetches and merges, so using a separate merge command is only needed for manually fetch changes first using git fetch.
-</details>
-
-<br><br>
-
-# Git Fatch & Merge Separately in local
->[!NOTE]
-    The git fetch command will retrieve the changes from the remote branch without modifying local working directory or merging those changes automatically. It simply updates local copy of the remote branch.
-
-<details style="border: 1px solid #000000; padding: 10px; border-radius: 5px; background-color: #f9f9f9; color: #000000;">   
-
-***<summary>Fatch into local branch:</summary>***
-   - Download the latest commits from the remote branch to your local repository.
-   - Update the remote-tracking branch (origin/<branch-name>), but not merge these changes into your local branch.<br>
-    - Command:<br>
-      `git fetch origin <branch-name>`
-
-- Why Fetch Separately?: <br>
-    *Fatch*: Fetching separately allows to review the changes before merging.<br>
-    *diff*: Inspect the changes fetched with commands like `git log origin/<branch-name>` or `git diff`.
-
-***<summary>Merge into local branch:</summary>***
-   - After fetching the changes, manually merge the updates into local branch by using:<br>
-    - Command:<br>
-      `git merge origin/<branch-name>`
-
-- Why Merge Separately?: <br>
-    *Merge*: Merge the changes from the remote-tracking branch (origin/<branch-name>) into your current local branch.<br>
-    *Conflicts*: If there are no conflicts, it will merge cleanly. If conflicts exist, Git will prompt.
 </details>
 
 <br><br>
